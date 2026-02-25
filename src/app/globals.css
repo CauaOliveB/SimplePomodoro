@@ -1,26 +1,127 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
+/* 1. MAPEAMENTO DO TEMA (O TRADUTOR DO TAILWIND V4) */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  --font-sans: 'Space Grotesk', var(--font-geist-sans);
+  --font-mono: 'JetBrains Mono', var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 2. VARIÁVEIS DE COR E DESIGN*/
+:root {
+  /* Cores em HSL (O Shadcn no Nextjs interpreta esses valores) */
+  --background: hsl(220, 20%, 10%);
+  --foreground: hsl(210, 40%, 95%);
+
+  --card: hsl(220, 20%, 14%);
+  --card-foreground: hsl(210, 40%, 95%);
+
+  --popover: hsl(220, 20%, 12%);
+  --popover-foreground: hsl(210, 40%, 95%); 
+  --primary: hsl(15, 90%, 55%);
+  --primary-foreground: hsl(0, 0%, 100%);
+
+  --secondary: hsl(220, 15%, 20%);
+  --secondary-foreground: hsl(210, 40%, 90%);
+
+  --muted: hsl(220, 15%, 18%);
+  --muted-foreground: hsl(215, 15%, 55%);
+
+  --accent: hsl(220, 15%, 22%);
+  --accent-foreground: hsl(210, 40%, 95%);
+
+  --destructive: hsl(0, 72%, 51%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(220, 15%, 22%);
+  --input: hsl(220, 15%, 22%);
+  --ring: hsl(15, 90%, 55%);
+
+  --radius: 1rem;
+
+  /* Glass Tokens (Valores com canal Alpha para transparência) */
+  --glass-bg: 220 20% 16% / 0.6;
+  --glass-border: 220 15% 40% / 0.2;
+}
+
+/* 3. ESTILOS DE BASE */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Caso as fontes não estejam no layout.js, elas são chamadas aqui */
+    font-family: 'Space Grotesk', sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 4. ANIMAÇÕES (KEYFRAMES) */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+/* 5. CLASSES UTILITÁRIAS PERSONALIZADAS */
+
+/* Fundo Animado para a tela de Login */
+.animated-bg-focus {
+  background: linear-gradient(
+    -45deg,
+    hsl(15, 70%, 14%),
+    hsl(220, 30%, 10%),
+    hsl(25, 50%, 12%),
+    hsl(220, 40%, 8%)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+/* Efeito de Vidro (Glassmorphism) */
+.glass {
+  background: hsla(var(--glass-bg));
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid hsla(var(--glass-border));
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Input ou elementos internos com vidro mais sutil */
+.glass-subtle {
+  background: hsla(220, 20% , 16%, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid hsla(220, 15% , 40%, 0.12);
+}
+
+/* Estilo para a barra de rolagem (Scrollbar) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsla(220, 15%, 40%, 0.3);
+  border-radius: 3px;
 }
