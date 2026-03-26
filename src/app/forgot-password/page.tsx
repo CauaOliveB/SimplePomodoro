@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card"
 import  Link  from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/atoms/Button/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 

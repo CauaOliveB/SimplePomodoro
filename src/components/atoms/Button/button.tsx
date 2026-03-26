@@ -18,6 +18,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+   glass: "py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400",
+
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -28,6 +30,8 @@ const buttonVariants = cva(
         "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
+        glassrounded: "h-auto w-auto p-0 rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 p-4",
+        play: "h-auto w-auto p-6 m-9 rounded-md shadow-2xl transition-all hover:scale-110 active:scale-95"
       },
     },
     defaultVariants: {
