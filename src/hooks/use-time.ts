@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 export function useTimer(initialSeconds: number) {
+    
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isActive, setIsActive] = useState(false);
 
@@ -12,7 +13,6 @@ export function useTimer(initialSeconds: number) {
   useEffect(() => {
     let interval: NodeJS.Timeout;
 
-    // Só cria o intervalo se estiver ativo E houver tempo restante
     if (isActive && seconds > 0) {
       interval = setInterval(() => {
         setSeconds((prev) => prev - 1);
@@ -31,6 +31,7 @@ export function useTimer(initialSeconds: number) {
     setIsActive(false);
     setSeconds(initialSeconds);
   };
+
 
   return { 
     seconds, 

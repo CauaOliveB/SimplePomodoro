@@ -18,7 +18,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-   glass: "py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400",
+        glass: "py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400",
+        timerMode: "bg-timerMode text-timerMode-foreground hover:bg-timerMode/90"
 
       },
       size: {

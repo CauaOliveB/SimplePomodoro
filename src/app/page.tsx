@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/atoms/Button/button"
+import { Button } from "@/components/atoms/button/Button"
 import { Timer } from "lucide-react"
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ export default function Login() {
         <Label>Password</Label>
         <Input type="password" className="glass-subtle border-white/10" placeholder="*********"></Input>
         <Button className="mt-4 bg-primary text-white"><Link href="/timer">Login</Link></Button>
-        <p className="text-center text-white/20">Do not have an account? <Link href="/sing-up" className="text-primary hover:underline">Sign Up</Link></p>
+        <p className="text-center text-white/20">Do not have an account? <Link href="/sign-up" className="text-primary hover:underline">Sign Up</Link></p>
         <p className="text-center text-white/20"><Link href="/forgot-password" className="text-primary hover:underline">Forgot password?</Link></p>
       </Card>      
     </main>

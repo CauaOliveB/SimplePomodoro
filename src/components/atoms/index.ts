@@ -1,4 +1,4 @@
 // Button
 
-export * from '@/components/atoms/Button/button';
+export * from '@/components/atoms/button/Button';
 
