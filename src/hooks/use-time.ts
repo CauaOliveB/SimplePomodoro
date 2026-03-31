@@ -28,10 +28,9 @@ export function useTimer(initialSeconds: number) {
   const toggleActive = () => setIsActive(!isActive);
   
   const reset = () => {
-    setIsActive(false);
+    setIsActive(true);
     setSeconds(initialSeconds);
   };
-
 
   return { 
     seconds, 
@@ -41,3 +40,12 @@ export function useTimer(initialSeconds: number) {
     reset 
   };
 }
+
+// export function TimerMode( Mode: string){
+
+//     const[focus, setFocus] = useState(Mode)
+//     const steps = ["Foco", "Pausa Curta", "Pausa Longa"]
+//     if (Mode == "Foco") {
+//         toggleActive()
+//     }
+// }
